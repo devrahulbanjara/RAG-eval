@@ -10,3 +10,8 @@ wheels/
 .venv
 project-insurance-rag-evaluation.md
 .env
+
+# DeepEval local state
+.deepeval/
+.deepeval-cache.json
+temp_test_run_data.json

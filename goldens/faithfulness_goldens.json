@@ -1,0 +1,205 @@
+[
+  {
+    "id": "g001",
+    "query": "Under the HDFC ERGO health policy, how long is the waiting period for pre-existing diseases?",
+    "ideal_context": [
+      "[hdfc_ergo_health]\n### iii.) Pre-Existing Diseases : Excl01  \na) Expenses related to the treatment of a pre-existing disease (PED) and its direct complications shall be excluded until the expiry of 36 months of continuous coverage after the date of inception of the first policy with insurer.  \nb) In case of enhancement of sum insured the exclusion shall apply afresh to the extent of sum insured increase.  \nc) If the insured person is continuously covered without any break as defined under the Portability/Migration norms of the extant IRDAI (Health Insurance) Regulations, then waiting period for the same would be reduced to the extent of prior coverage. d) Coverage under the policy after the expiry of 36 months for any pre-existing disease is subject to the same being declared at the time of application and accepted by insurer.  \n**Pl Note:** Coverage under the policy for any past illness/condition or surgery is subject to the same being declared at the time of application and accepted by Us without any exclusion."
+    ],
+    "sources": [
+      "hdfc_ergo_health"
+    ]
+  },
+  {
+    "id": "g002",
+    "query": "Do the Universal Sompo and HDFC ERGO policies use the same waiting period for pre-existing diseases?",
+    "ideal_context": [
+      "[universal_sompo_complete_healthcare]\n## SECTION VII : WAITING PERIOD  \nThe Company shall not be liable to make any payment under the policy in connection with or in respect of following expenses till the expiry of waiting period mentioned below:  \n**1. Pre-Existing Diseases (Code- Excl01)**  \n- **a)** Expenses related to the treatment of a pre-existing Disease (PED) and its direct complications shall be excluded until the expiry of 36 months of continuous coverage after the date of inception of the first policy with us.  \n- **b)** In case of enhancement of sum insured the exclusion shall apply afresh to the extent of sum insured increase.  \n- **c)** If the Insured Person is continuously covered without any break as defined under the portability norms of the extant IRDAI (Health Insurance) Regulations then waiting period for the same would be reduced to the extent of prior coverage.  \n- **d)** Coverage under the policy after the expiry of 36 months  for any pre-existing disease is subject to the same being declared at the time of application and accepted by us.  \n**2. Specific Waiting Period: (Code- Excl02)**  \n- Expenses related to the treatment of the following listed conditions, surgeries/treatments shall be excluded until the expiry of 12 months of continuous coverage, as may be the case after the date of inception of the first policy with us. This exclusion shall not be applicable for claims arising due to an accident.  \n- In case of enhancement of sum insured the exclusion shall apply afresh to the extent of sum insured increase.  \n- If any of the specified disease/procedure falls under the waiting period specified for preexisting diseases, then the longer of the two waiting periods shall apply.  \n- The waiting period for listed conditions shall apply even if contracted after the policy or declared and accepted without a specific exclusion.  \n- If the Insured Person is continuously covered without any break under the policy, then waiting period for the same would be reduced to the extent of prior coverage. List of specific diseases/procedures:  \n**i . Illnesses**",
+      "[hdfc_ergo_health]\n### iii.) Pre-Existing Diseases : Excl01  \na) Expenses related to the treatment of a pre-existing disease (PED) and its direct complications shall be excluded until the expiry of 36 months of continuous coverage after the date of inception of the first policy with insurer.  \nb) In case of enhancement of sum insured the exclusion shall apply afresh to the extent of sum insured increase.  \nc) If the insured person is continuously covered without any break as defined under the Portability/Migration norms of the extant IRDAI (Health Insurance) Regulations, then waiting period for the same would be reduced to the extent of prior coverage. d) Coverage under the policy after the expiry of 36 months for any pre-existing disease is subject to the same being declared at the time of application and accepted by insurer.  \n**Pl Note:** Coverage under the policy for any past illness/condition or surgery is subject to the same being declared at the time of application and accepted by Us without any exclusion."
+    ],
+    "sources": [
+      "hdfc_ergo_health",
+      "universal_sompo_complete_healthcare"
+    ]
+  },
+  {
+    "id": "g003",
+    "query": "What is the waiting period for joint replacement surgery under the HDFC ERGO policy?",
+    "ideal_context": [
+      "[hdfc_ergo_health]\n### ii.) Specified disease/procedure waiting period : Excl02  \na) Expenses related to the treatment of the listed Conditions, surgeries/treatments shall be excluded until the expiry of 24 months of continuous coverage after the date of inception of the first policy with us. This exclusion shall not be applicable for claims arising due to an accident or underlying cause is cancer(s).  \nb) In case of enhancement of sum insured the exclusion shall apply afresh to the extent of sum insured increase.  \nc) If any of the specified disease/procedure falls under the waiting period specified for pre-existing diseases, then the longer of the two waiting periods shall apply.  \nd) The waiting period for listed conditions shall apply even if contracted after the policy or declared and accepted without a specific exclusion.  \ne) If the Insured Person is continuously covered without any break as defined under the applicable norms on Portability/Migration stipulated by IRDAI, then waiting period for the same would be reduced to the extent of prior coverage.  \n|Sl<br>No|Organ / Organ<br>System|Illness / diagnoses<br>(irrespective of<br>treatments medical<br>or surgical)|Surgeries / procedure<br>(irrespective of any illness<br>/ diagnosis other than<br>cancers)|\n|---|---|---|---|\n|a|Ear, Nose, Throat<br>(ENT)|• Sinusitis<br>• Rhinitis<br>• Tonsillitis|• Adenoidectomy<br>• Mastoidectomy<br>• Tonsillectomy<br>• Tympanoplasty<br>• Surgery for Nasal septum<br>deviation<br>• Surgery for Turbinate<br>hypertrophy<br>• Nasal concha resection<br>• Nasal polypectomy|",
+      "[hdfc_ergo_health]\n|b|Gynaecological|• Cysts, polyps<br>including breast<br>lumps<br>• Polycystic ovarian<br>diseases<br>• Fibromyoma<br>• Adenomyosis<br>• Endometriosis<br>• Prolapsed Uterus|• Hysterectomy|\n|Sl<br>No|Organ / Organ<br>System|Illness|Treatment|\n|c|Orthopaedic|• Non infective<br>arthritis<br>• Gout and<br>Rheumatism<br>• Osteoporosis<br>• Ligament, Tendon<br>and Meniscal tear<br>• Prolapsed inter<br>vertebral disk|• Joint replacement surgeries|\n|d|Gastrointestinal|• Cholelithiasis<br>• Cholecystitis<br>• Pancreatitis<br>• Fissure/<br>fistula in anus,<br>Haemorrhoids,<br>Pilonidal sinus<br>• Gastro Esophageal<br>Reflux Disorder<br>(GERD), Ulcer and<br>erosion of stomach<br>and duodenum<br>• Cirrhosis (However<br>Alcoholic cirrhosis<br>is permanently<br>excluded)<br>• Perineal and<br>Perianal Abscess<br>• Rectal Prolapse|• Cholecystectomy<br>• Surgery of hernia|  \nf) List of specific diseases/procedures: -  \n~~4~~  \n|e|Urogenital|• Calculus diseases<br>of Urogenital<br>system including<br>Kidney, ureter,<br>bladder stones<br>• Benign Hyperplasia<br>of prostate<br>• Varicocele|• Surgery on prostate<br>• Surgery for Hydrocele/<br>Rectocele|\n|---|---|---|---|"
+    ],
+    "sources": [
+      "hdfc_ergo_health"
+    ]
+  },
+  {
+    "id": "g004",
+    "query": "Under the HDFC ERGO Restore Benefit, how many times is the sum insured restored in a policy year and what happens if it is not used?",
+    "ideal_context": [
+      "[hdfc_ergo_health]\n## Section II. Restore Benefits.  \n|Instant addition  of 100% Basic Sum Insured on<br>complete or partial utilization of Your existing Policy<br>Sum Insured and Multiplier Benefit (if applicable)<br>during the Policy Year.  The Total amount (Basic<br>sum insured, Multiplier benefit and Restore sum<br>insured) will be available to all Insured Persons for<br>all claims under In-patient Benefit during the current<br>Policy Year  and subject to the condition that single<br>claim  in a Policy Year cannot exceed the sum of<br>Basic Sum Insured and the Multiplier Benefit (if<br>applicable).|\n|---|\n|Conditions for Restore benefit:<br>a.|\n|The Sum Insured will be restored only once in a<br>Policy Year.<br>b.|\n|If the Restored Sum Insured is not utilized in a Policy<br>Year, it will expire.|\n|In case of a Family Floater Policy, Restore Sum<br>Insured will be available on floater basis for all<br>Insured Persons in the Policy.|"
+    ],
+    "sources": [
+      "hdfc_ergo_health"
+    ]
+  },
+  {
+    "id": "g005",
+    "query": "What does the first thirty days waiting period exclude under the SBI SuperHealth policy?",
+    "ideal_context": [
+      "[sbi_superhealth]\n## E. WAITING PERIOD  \nWe are not liable to make any payment under the policy in connection with or in respect of following expenses till the expiry of waiting period mentioned below:  \n- **I) First Thirty Days Waiting Period (Code-Excl 03)** :  \n- a) Expenses related to the treatment of any Illness within 30 days from the first Policy Commencement Date shall be excluded excepts claims arising due to an accident, provided the same are covered.  \n- b) This exclusion shall not, however, apply if the Insured Person has continuous coverage for more than twelve (12) months.  \n- c) The within referred waiting period is made applicable to the enhanced Sum Insured in the event of granting higher Sum Insured subsequently.  \n**SuperHealth Insurance**  \n- d) Note: The above waiting period shall not be applicable for claims arising due to Hypertension, Diabetes and Cardiac Condition and for claims under Section C.24 – Medical Treatment abroad. Waiting period specific to these ailments are mentioned in E. IV and V.  \n**II) Specified diseases and Procedures Waiting Period (Code-Excl 02):**  \n- a) Expenses related to the treatment of listed Conditions; Surgeries/treatments shall be excluded until the expiry of 24/12 months (as specified in the Policy Schedule) of continuous coverage after the date of inception of the first Policy with Us. This exclusion shall not be applicable for claims arising due to an accident.  \n- b) In case of enhancement of Sum Insured the exclusion shall apply afresh to the extent of Sum Insured increase.  \n- c) If any of the specified disease / procedures falls under the waiting period specified for Pre-Existing Diseases, then the longer of the two waiting periods shall apply.  \n- d) The waiting period for listed conditions shall apply even if contracted after the Policy or declared and accepted without a specific exclusion.  \n- e) If the Insured Person is continuously covered without any break as defined under the applicable norms of Portability stipulated by IRDAI, then waiting period for the same would be reduced to the extent of prior coverage.  \n**i. Illnesses**  \n|Internal Congenital diseases|Non infective Arthritis|\n|---|---|"
+    ],
+    "sources": [
+      "sbi_superhealth"
+    ]
+  },
+  {
+    "id": "g006",
+    "query": "What qualifies as an AYUSH Hospital under the SBI SuperHealth policy?",
+    "ideal_context": [
+      "[sbi_superhealth]\n#### 3. AYUSH Hospital  \nmeans an AYUSH Hospital is a healthcare facility wherein medical / surgical / para-surgical treatment procedures and interventions are carried out by AYUSH _Medical Practitioner(s)_ comprising of any of the following:  \n- a. Central or State Government AYUSH Hospital; or  \n- b. Teaching hospital attached to AYUSH College recognized by the Central Government / Central Council for Homeopathy; or  \n- c. AYUSH Hospital, standalone or co-located with in-patient healthcare facility of any recognized system of medicine, registered with the local authorities, wherever applicable, and is under the supervision of a qualified registered AYUSH _Medical Practitioner_ and must comply with all the following criterion:  \n- i. Having at least 5 in-patient beds;  \n- ii. Having qualified AYUSH _Medical Practitioner_ in charge round the clock;  \n- iii. Having dedicated AYUSH therapy sections as required and / or has equipped operation theatre where surgical procedures are to be carried out;  \n- iv. Maintaining daily records of the patients and making them accessible to the insurance company’s authorized representative."
+    ],
+    "sources": [
+      "sbi_superhealth"
+    ]
+  },
+  {
+    "id": "g007",
+    "query": "Under what conditions does the HDFC ERGO policy pay for an emergency air ambulance?",
+    "ideal_context": [
+      "[hdfc_ergo_health]\n|j. Emergency Air Ambulance Cover<br>We will pay for ambulance transportation in an<br>airplane or helicopter subject to maximum limit<br>prescribed in j (1), for emergency life threatening<br>health conditions which require immediate and rapid<br>ambulance transportation to the  hospital/medical<br>centre that ground transportation cannot provide<br>subject to:<br>• Necessary medical treatment not being available at<br>the location where the Insured Person is situated at<br>the time of Emergency;<br>• The Medical Evacuation been prescribed by a Medical<br>Practitioner and is Medically Necessary;<br>• The insured person is in India and the treatment is<br>required in India only and not overseas in any condition<br>whatsoever; and<br>•The air ambulance provider being registered in India.<br>J(1) The amount payable in case of Air ambulance facility<br>shall be either the actual expenses or Rs. 2.5 Lacs<br>per hospitalisation, whichever is lower; upto basic<br>sum insured limit for a year.|1. Claims which have NOT been admitted under 1 a)<br>and 1d).<br>2. Expenses incurred in return transportation to the<br>insured’s home by air ambulance is excluded.|  \n~~2~~"
+    ],
+    "sources": [
+      "hdfc_ergo_health"
+    ]
+  },
+  {
+    "id": "g008",
+    "query": "Does the NFIP Residential Condominium Building Association Policy impose a coinsurance penalty?",
+    "ideal_context": [
+      "[nfip_residential_condominium_building_association_policy]\n## VII. Coinsurance  \nA. This Coinsurance Section applies only to coverage on the building.  \nB. We will impose a penalty on loss payment unless the amount of insurance applicable to the damaged building is:  \n1. At least 80 percent of its replacement cost; or  \n2. The maximum amount of insurance available for that building under the NFIP, whichever is less.  \nC. If the actual amount of insurance on the building is less than the required amount in accordance with the terms of VII.B above, then loss payment is determined as follows (subject to all other relevant conditions in this policy, including those pertaining to valuation, adjustment, settlement, and payment of loss):  \n1. Divide the actual amount of insurance carried on the building by the required amount of insurance.  \n2. Multiply the amount of loss, before application of the deductible, by the figure determined in C.1 above.  \n3. Subtract the deductible from the figure determined in C.2 above.  \nWe will pay the amount determined in C.3 above, or the amount of insurance carried, whichever is less. The amount of insurance carried, if in excess of the applicable maximum amount of insurance available under the NFIP, is reduced accordingly."
+    ],
+    "sources": [
+      "nfip_residential_condominium_building_association_policy"
+    ]
+  },
+  {
+    "id": "g009",
+    "query": "Under the NFIP Dwelling Form, which losses does the deductible not apply to?",
+    "ideal_context": [
+      "[nfip_dwelling_form]\n## VI. Deductibles  \nA. When a loss is insured under this policy, we will pay only that part of the loss that exceeds your deductible amount, subject to the limit of liability that applies. The deductible amount is shown on the Declarations Page.  \nHowever, when a building under construction, alteration, or repair does not have at least two rigid exterior walls and a fully secured roof at the time of loss, your deductible amount will be two times the deductible that would otherwise apply to a completed building.  \nB. In each loss from flood, separate deductibles apply to the building and personal property insured by this policy.  \nC. The deductible does NOT apply to:  \n1. III.C.2. Loss Avoidance Measures;  \n2. III.C.3. Condominium Loss Assessments; or  \n3. III.D. Increased Cost of Compliance."
+    ],
+    "sources": [
+      "nfip_dwelling_form"
+    ]
+  },
+  {
+    "id": "g010",
+    "query": "Under the NFIP General Property Form, which losses does the deductible not apply to?",
+    "ideal_context": [
+      "[nfip_general_property_form]\n## VI. Deductibles  \nA. When a loss is insured under this policy, we will pay only that part of the loss that exceeds your deductible amount, subject to the limit of liability that applies. The deductible amount is shown on the Declarations Page.  \nHowever, when a building under construction, alteration, or repair does not have at least two rigid exterior walls and a fully secured roof at the time of loss, your deductible amount will be two times the deductible that would otherwise apply to a completed building.  \nB. In each loss from flood, separate deductibles apply to the building and personal property insured by this policy.  \nC. The deductible does NOT apply to:  \n1. III.C.2. Loss Avoidance Measures; or  \n2. III.D. Increased Cost of Compliance."
+    ],
+    "sources": [
+      "nfip_general_property_form"
+    ]
+  },
+  {
+    "id": "g011",
+    "query": "What is the maximum flood insurance building coverage available for a single-family dwelling under the NFIP Regular Program?",
+    "ideal_context": [
+      "[nfip_44cfr61_regulation]\n## § 61.6 Maximum amounts of coverage available.  \n(a) Pursuant to section 1306 of the Act, the following are the limits of coverage available under the emergency program and under the regular program.  \n| Occupancy | EmergencyProgram | Regular Program |\n|---|---|---|\n| Amount | Amount |  |\n| Building Coverage |  |  |\n| Single-Family Dwelling | * $35,000 | $250,000. |\n| Two-to-Four Family Building | * 35,000 | $250,000. |\n| Other Residential Building (including Multifamily Building) | ** 100,000 | $500,000. |\n| Residential Condominium Building | N/A | $250,000 times the number of units in the building. |\n| Non-Residential Building | 100,000 | $500,000. |\n| Contents Coverage 2 |  |  |\n| Residential Property 3 | 10,000 | $100,000. |\n| Non-Residential Property | 100,000 | $500,000. |\n| 1 This Table provides the maximum coverage amounts available under the Emergency Program and the Regular Program, and the columns cannot be aggregated to exceed the limits in the Regular Program, which are established by statute. The aggregate limits for building coverage are the maximum coverage amounts allowed by statute for each building included in the relevant Occupancy Category. |  |  |\n| 2 The policy limits for contents coverage are not per building. Although a single insured may not have more than one policy covering contents in a building, several insureds may have separate policies of up to the policy limits. |  |  |\n| 3 The Residential Property occupancy category includes the Single-Family Dwelling, Two-to-Four Family Building, Other Residential Building, and Condominium Building occupancies categories. |  |  |\n| * In Alaska, Guam, Hawaii, and U.S. Virgin Islands, the amount available is $50,000. |  |  |\n| ** In Alaska, Guam, Hawaii, and U.S. Virgin Islands, the amount available is $150,000. |  |  |  \nTable 1 to Paragraph (a)—Maximum Amounts of Coverage Available 1"
+    ],
+    "sources": [
+      "nfip_44cfr61_regulation"
+    ]
+  },
+  {
+    "id": "g012",
+    "query": "How does the cumulative bonus work under the Universal Sompo Complete Healthcare policy?",
+    "ideal_context": [
+      "[universal_sompo_complete_healthcare]\n### C1. Cumulative Bonus  \n- If no claim has been made under the Policy, including for the optional benefits, and the Policy is renewed with Us without any break, We will apply a Cumulative Bonus to the next Policy Year by automatically increasing the Sum Insured by 10% of the Sum Insured will be applicable for every claim free year accumulating up to 50% of sum insured. of the Inpatient Sum Insured for up to 10 lacs of Base SI under the Policy (Plans – Basic, Essential, Privilege, Digi-Pro) and  \n- 20% of the Sum Insured this year, maximum Cumulative Bonus shall not exceed 100% of the Inpatient Sum Insured from 15 Lacs to 50 Lacs of Base SI under the policy (Plus, Premier, Executive)  \n- In case of a Family floater the Cumulative Bonus so applied will only be available in respect of claims made by those Insured Persons who were Insured Persons in the claim free Policy Year and continue to be Insured Persons in the subsequent Policy Year.  \n- If a Cumulative Bonus has been applied and a claim is made, then in the subsequent Policy Year We will automatically decrease the Cumulative Bonus by 10% and/or 20% (as per plan opted) of the increased Sum Insured in that following Policy Year. There will be no impact on the Inpatient Sum Insured, only the accrued Cumulative Bonus will be decreased.  \n- Portability benefit will be offered to the extent of sum of previous Sum Insured and accrued Cumulative Bonus, Portability shall not apply to any additional increased Sum Insured."
+    ],
+    "sources": [
+      "universal_sompo_complete_healthcare"
+    ]
+  },
+  {
+    "id": "g013",
+    "query": "What minimum deductible amounts does the NFIP regulation require, and what is the highest deductible option FEMA must offer?",
+    "ideal_context": [
+      "[nfip_44cfr61_regulation]\n## § 61.5 Deductibles.  \nFEMA must provide policyholders with deductible options in various amounts, up to and including $10,000, subject to the following minimum deductible amounts:  \n(a) The minimum deductible for policies covering pre-FIRM buildings charged less than full-risk rates with building coverage amounts less than or equal to $100,000 is $1,500.  \n(b) The minimum deductible for policies covering pre-FIRM buildings charged less than full-risk rates with building coverage amounts greater than $100,000 is $2,000.  \n(c) The minimum deductible for policies covering post-FIRM buildings and pre-FIRM buildings charged full risk rates, with building coverage amounts equal to or less than $100,000 is $1,000.  \n(d) The minimum deductible for policies covering post-FIRM buildings and pre-FIRM buildings charged full risk rates, with building coverage amounts greater than $100,000 is $1,250.  \n> [85 FR 43958, July 20, 2020]"
+    ],
+    "sources": [
+      "nfip_44cfr61_regulation"
+    ]
+  },
+  {
+    "id": "g014",
+    "query": "Which economic losses does the NFIP Dwelling Form refuse to pay for?",
+    "ideal_context": [
+      "[nfip_dwelling_form]\n## V. Exclusions  \nA. We only pay for direct physical loss by or from flood, which means that we do not pay you for:  \n1. Loss of revenue or profits;  \n2. Loss of access to the insured property or described location;  \n3. Loss of use of the insured property or described location;  \n4. Loss from interruption of business or production;  \n5. Any additional living expenses incurred while the insured building is being repaired or is unable to be occupied for any reason;  \n6. The cost of complying with any ordinance or law requiring or regulating the construction, demolition, remodeling, renovation, or repair of property, including removal of any resulting debris. This exclusion does not apply to any eligible activities we describe in Coverage D—Increased Cost of Compliance; or  \n7. Any other economic loss you suffer.  \nB. Flood in Progress. If this policy became effective as of the time of a loan closing, as provided by 44 CFR 61.11(b), we will not pay for a loss caused by a flood that is a continuation of a flood that existed prior to coverage becoming effective. In all other circumstances, we will not pay for a loss caused by a flood that is a continuation of a flood that existed on or before the day you submitted the application for coverage under this policy and the full amount due. We will determine the date of application using 44 CFR 61.11(f).  \nC. We do not insure for loss to property caused directly by earth movement even if the earth movement is caused by flood. Some examples of earth movement that we do not cover are:  \n1. Earthquake;  \n2. Landslide;  \n3. Land subsidence;  \n4. Sinkholes;  \n5. Destabilization or movement of land that results from accumulation of water in subsurface land area; or  \n6. Gradual erosion.  \nWe do, however, pay for losses from mudflow and land subsidence as a result of erosion that are specifically insured under our definition of flood (see II.B.1.c and II.B.2).  \nD. We do not insure for direct physical loss caused directly or indirectly by any of the following:  \n1. The pressure or weight of ice;  \n2. Freezing or thawing;  \n3. Rain, snow, sleet, hail, or water spray;"
+    ],
+    "sources": [
+      "nfip_dwelling_form"
+    ]
+  },
+  {
+    "id": "g015",
+    "query": "How much will the NFIP Dwelling Form pay under Increased Cost of Compliance, and is a separate deductible charged?",
+    "ideal_context": [
+      "[nfip_dwelling_form]\n#### 2. Limit of Liability  \nWe will pay you up to $30,000 under this Coverage D—Increased Cost of Compliance, which only applies to policies with building coverage (Coverage A). Our payment of claims under Coverage D is in addition to the amount of coverage which you selected on the application and which appears on the Declarations Page. But the maximum you can collect under this policy for both Coverage A—Building Property and Coverage D—Increased Cost of Compliance cannot exceed the maximum permitted under the Act. We do not charge a separate deductible for a claim under Coverage D."
+    ],
+    "sources": [
+      "nfip_dwelling_form"
+    ]
+  },
+  {
+    "id": "g016",
+    "query": "When does the Universal Sompo policy cover cosmetic or plastic surgery?",
+    "ideal_context": [
+      "[universal_sompo_complete_healthcare]\n#### 5. Cosmetic or plastic Surgery: (Code- Excl08)  \nExpenses for cosmetic or plastic surgery or any treatment to change appearance unless for reconstruction following an Accident, Burn(s) or Cancer or as part of medically necessary treatment to remove a direct and immediate health risk to the insured. For this to be considered a medical necessity, it must be certified by the attending Medical Practitioner."
+    ],
+    "sources": [
+      "universal_sompo_complete_healthcare"
+    ]
+  },
+  {
+    "id": "g017",
+    "query": "Under what conditions will the HDFC ERGO policy pay for surgical treatment of obesity?",
+    "ideal_context": [
+      "[hdfc_ergo_health]\n### Medical Exclusions  \n- 5) Treatment for Alcoholism, drug or substance abuse or any addictive condition and consequences thereof.  : Excl12  \n6) Prosthetic and other devices which are self detachable /removable without surgery involving anaesthesia  \n- 7) Treatment availed outside India  \n- 8) Treatment at a healthcare facility which is NOT a Hospital.  \n- 9) Obesity/ Weight Control : Excl06  \nExpenses related to the surgical treatment of obesity that does not fulfil all the below conditions:  \n- i) Surgery to be conducted is upon the advice of the Doctor  \n- ii) The surgery/Procedure conducted should be supported by clinical protocols  \n- iii) The member has to be 18 years of age or older and  \n- iv) Body Mass Index (BMI);  \n- a) greater than or equal to 40 or  \n- b) greater than or equal to 35 in conjunction with any of the following severe co-morbidities following failure of less invasive methods of weight loss:  \n- i. Obesity-related cardiomyopathy  \n- ii. Coronary heart disease  \niii.Severe Sleep Apnoea  \niv. Uncontrolled Type2 Diabetes  \n- 10) Refractive Error: Excl15  \nExpenses related to the treatment for correction of eye sight due to refractive error less than 7.5 dioptres.  \n- 11) Cosmetic or plastic Surgery: Excl08  \nExpenses for cosmetic or plastic surgery or any treatment to change appearance unless for reconstruction following an Accident, Burn(s) or Cancer or as part of medically necessary treatment to remove a direct and immediate health risk to the insured. For this to be considered a medical necessity, it must be certified by the  \n~~5~~  \n**attending Medical Practitioner.**  \n12) Circumcisions (unless necessitated by Illness or injury and forming part of treatment)  \n13) Change-of-Gender treatments : Excl07  \nExpenses related to any treatment, including surgical management, to change characteristics of the body to those of the opposite sex.  \n14) Non allopathic treatment.  \n15) Conditions for which treatment could have been done on an outpatient   basis without any Hospitalisation.  \n16) Unproven Treatments: Excl16"
+    ],
+    "sources": [
+      "hdfc_ergo_health"
+    ]
+  },
+  {
+    "id": "g018",
+    "query": "Who is eligible for the Bariatric Surgery Cover under the SBI SuperHealth policy, and what conditions apply?",
+    "ideal_context": [
+      "[sbi_superhealth]\n### C.13 Bariatric Surgery Cover  \n**SuperHealth Insurance**  \nIf You are hospitalized on the advice of a Medical Practitioner because of conditions mentioned below which required You to undergo Bariatric Surgery during the Policy Period, then We will pay You, Medical Expenses as listed in Section C.1 related to Bariatric Surgery  \n**Eligibility:**  \nFor adults aged 18 years or older, presence of severe documented in contemporaneous clinical records, defined as any of the following:  \nBody Mass Index (BMI);  \n- a) greater than or equal to 40 or  \n- b) greater than or equal to 35 in conjunction with any of the following severe co-morbidities following failure of less invasive methods of weight loss:  \n- i. Obesity-related cardiomyopathy  \n- ii. Coronary heart disease  \niii. Severe Sleep Apnea  \niv. Uncontrolled Type 2 Diabetes  \n**Conditions**  \n- v. Our maximum liability will be restricted to up to Sublimit mentioned in the Policy Schedule.  \n- vi. Bariatric surgery performed for Cosmetic reasons is excluded.  \n- vii. The indication for the procedure should be found appropriate by two qualified surgeons and the Insured shall obtain prior approval for cashless treatment from the Company.  \nInsured Person shall not bear specified percentage of admissible Claim amount under each and every Claim If Co-payment under Section D.3 is opted and specified in the Policy Schedule."
+    ],
+    "sources": [
+      "sbi_superhealth"
+    ]
+  },
+  {
+    "id": "g019",
+    "query": "What does the SBI SuperHealth policy exclude under Investigation and Evaluation, and under Rest Cure?",
+    "ideal_context": [
+      "[sbi_superhealth]\n### A. STANDARD EXCLUSIONS  \n- I. Investigation and Evaluation (Code-Excl 04):  \n- a) Expenses related to any admission primarily for diagnostics and evaluation purposes.  \n- b) Any diagnostic expenses which are not related or not incidental to the current diagnosis and treatment.  \n- II. Rest Cure, rehabilitation, and respite care (Code- Excl 05) Expenses related to any admission primarily for enforced bed rest and not for receiving treatment. This also includes:  \n**SuperHealth Insurance**  \n- a) Custodial care either at home or in a nursing facility for personal care such as help with activities of daily living such as bathing, dressing, moving around either by skilled nurses or assistant or non-skilled persons.  \n- b) Any services for people who are terminally ill to address physical, social, emotional, and spiritual needs.  \n- III. Obesity / Weight Control (Code- Excl 06) Expenses related to the surgical treatment of obesity that does not fulfil all the below conditions:  \n- 1) Surgery to be conducted is upon the advice of the Doctor  \n- 2) The surgery/Procedure conducted should be supported by clinical protocols  \n- 3) The member has to be 18 years of age or older and  \n- 4) Body Mass Index (BMI);  \n- a) greater than or equal to 40 or  \n- b) greater than or equal to 35 in conjunction with any of the following severe co-morbidities following failure of less invasive methods of weight loss:  \n- i. Obesity-related cardiomyopathy  \n- ii. Coronary heart disease  \n- iii. Severe Sleep Apnea  \n- iv. Uncontrolled Type 2 Diabetes  \n- IV. Change of Gender Treatments (Code- Excl 07)  \nExpenses related to any treatment, including surgical management, to change characteristics of the body to those of the opposite sex.  \n- V. Cosmetic or Plastic Surgery (Code- Excl 08)  \nExpenses for cosmetic or plastic surgery or any treatment to change appearance unless for reconstruction following an Accident, Burn(s) or Cancer or as part of medically necessary treatment to remove a direct and immediate health risk to the insured. For this to be considered a medical necessity, it must be certified by the attending Medical Practitioner.  \n- VI. Hazardous or Adventure Sports (Code- Excl 09)"
+    ],
+    "sources": [
+      "sbi_superhealth"
+    ]
+  },
+  {
+    "id": "g020",
+    "query": "What health check-up benefit does the Universal Sompo policy give after a claim free year?",
+    "ideal_context": [
+      "[universal_sompo_complete_healthcare]\n### C2. Health Check up  \nIf no claim has been made under this Policy, including for the optional benefits, and You have maintained this Policy with Us without any break then  \n- We will issue You a health Check-up coupon for Basic Essential and Privilege Plans.  \n- We will reimburse the cost of a Preventive Health Check-up for You up to the limits specified for Plus, Premier, Executive and Digi-pro Plans SI options.  \nThis Cover does NOT carry forward if it is not claimed and shall not be provided if the Policy is not Renewed further. The below mentioned limits are applicable for each Insured Person in case of Individual Policy and cumulatively for all Insured Persons in case of Family Floater Policy. Limits:"
+    ],
+    "sources": [
+      "universal_sompo_complete_healthcare"
+    ]
+  }
+]

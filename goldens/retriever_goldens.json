@@ -1,0 +1,163 @@
+[
+  {
+    "id": "g001",
+    "query": "Under the HDFC ERGO health policy, how long is the waiting period for pre-existing diseases?",
+    "ideal_answer": "Expenses related to a pre-existing disease and its direct complications are excluded until the expiry of 36 months of continuous coverage after the date of inception of the first policy with the insurer. If the sum insured is enhanced, the exclusion applies afresh to the extent of the increase. If the insured person has been continuously covered without any break under the IRDAI portability or migration norms, the waiting period is reduced to the extent of the prior coverage. Coverage after the expiry of 36 months applies only if the pre-existing disease was declared at the time of application and accepted by the insurer.",
+    "sources": [
+      "hdfc_ergo_health"
+    ]
+  },
+  {
+    "id": "g002",
+    "query": "Do the Universal Sompo and HDFC ERGO policies use the same waiting period for pre-existing diseases?",
+    "ideal_answer": "Yes, both use a 36 month waiting period. Universal Sompo excludes expenses related to a pre-existing disease and its direct complications until the expiry of 36 months of continuous coverage after the date of inception of the first policy with the company, and HDFC ERGO excludes them until the expiry of 36 months of continuous coverage after the date of inception of the first policy with the insurer. In both policies an enhancement of the sum insured makes the exclusion apply afresh to the extent of the increase, and continuous coverage without any break under the IRDAI portability norms reduces the waiting period to the extent of the prior coverage.",
+    "sources": [
+      "hdfc_ergo_health",
+      "universal_sompo_complete_healthcare"
+    ]
+  },
+  {
+    "id": "g003",
+    "query": "What is the waiting period for joint replacement surgery under the HDFC ERGO policy?",
+    "ideal_answer": "Joint replacement surgeries are listed among the specified diseases and procedures, under the orthopaedic category, so they are excluded until the expiry of 24 months of continuous coverage after the date of inception of the first policy. This exclusion does not apply to claims arising due to an accident, or where the underlying cause is cancer. If a specified procedure also falls under the waiting period for pre-existing diseases, the longer of the two waiting periods applies, and an enhancement of the sum insured makes the exclusion apply afresh to the extent of the increase.",
+    "sources": [
+      "hdfc_ergo_health"
+    ]
+  },
+  {
+    "id": "g004",
+    "query": "Under the HDFC ERGO Restore Benefit, how many times is the sum insured restored in a policy year and what happens if it is not used?",
+    "ideal_answer": "The sum insured is restored only once in a policy year, and if the restored sum insured is not utilised in that policy year it expires. The benefit adds 100% of the Basic Sum Insured instantly on complete or partial utilisation of the existing policy sum insured and the Multiplier Benefit during the policy year. The total of the basic sum insured, multiplier benefit and restored sum insured is available to all insured persons for all claims under the In-patient Benefit during that policy year, subject to the condition that a single claim cannot exceed the sum of the Basic Sum Insured and the Multiplier Benefit. In a family floater policy the restored sum insured is available on a floater basis for all insured persons.",
+    "sources": [
+      "hdfc_ergo_health"
+    ]
+  },
+  {
+    "id": "g005",
+    "query": "What does the first thirty days waiting period exclude under the SBI SuperHealth policy?",
+    "ideal_answer": "Expenses related to the treatment of any illness within 30 days from the first policy commencement date are excluded, except claims arising due to an accident, provided those are covered. This exclusion does not apply if the insured person has continuous coverage for more than twelve months, and the waiting period is applied again to the enhanced sum insured if a higher sum insured is granted subsequently. The waiting period also does not apply to claims arising due to hypertension, diabetes and cardiac conditions.",
+    "sources": [
+      "sbi_superhealth"
+    ]
+  },
+  {
+    "id": "g006",
+    "query": "What qualifies as an AYUSH Hospital under the SBI SuperHealth policy?",
+    "ideal_answer": "An AYUSH Hospital is a healthcare facility where medical, surgical or para-surgical treatment procedures and interventions are carried out by AYUSH medical practitioners. It must be either a Central or State Government AYUSH hospital, or a teaching hospital attached to an AYUSH college recognised by the Central Government or the Central Council for Homeopathy, or a standalone or co-located AYUSH hospital registered with the local authorities and under the supervision of a qualified registered AYUSH medical practitioner. A hospital in the third category must also have at least 5 in-patient beds, a qualified AYUSH medical practitioner in charge round the clock, and dedicated AYUSH therapy sections.",
+    "sources": [
+      "sbi_superhealth"
+    ]
+  },
+  {
+    "id": "g007",
+    "query": "Under what conditions does the HDFC ERGO policy pay for an emergency air ambulance?",
+    "ideal_answer": "The policy pays for ambulance transportation in an airplane or helicopter, subject to the maximum limit prescribed, for emergency life threatening health conditions that require immediate and rapid ambulance transportation to a hospital or medical centre which ground transportation cannot provide. The necessary medical treatment must not be available at the location where the insured person is situated at the time of the emergency, the medical evacuation must be prescribed by a medical practitioner and be medically necessary, the insured person must be in India with the treatment required in India and not overseas, and the air ambulance provider must be registered in India.",
+    "sources": [
+      "hdfc_ergo_health"
+    ]
+  },
+  {
+    "id": "g008",
+    "query": "Does the NFIP Residential Condominium Building Association Policy impose a coinsurance penalty?",
+    "ideal_answer": "Yes. The coinsurance section applies only to coverage on the building. A penalty is imposed on the loss payment unless the amount of insurance applicable to the damaged building is at least 80 percent of its replacement cost, or the maximum amount of insurance available for that building under the NFIP, whichever is less. If the actual amount of insurance carried on the building is less than that required amount, the loss payment is determined by dividing the actual amount of insurance carried by the required amount of insurance and multiplying the amount of loss, before application of the deductible, by the resulting figure.",
+    "sources": [
+      "nfip_residential_condominium_building_association_policy"
+    ]
+  },
+  {
+    "id": "g009",
+    "query": "Under the NFIP Dwelling Form, which losses does the deductible not apply to?",
+    "ideal_answer": "The deductible does not apply to Loss Avoidance Measures under III.C.2, Condominium Loss Assessments under III.C.3, or Increased Cost of Compliance under III.D.",
+    "sources": [
+      "nfip_dwelling_form"
+    ]
+  },
+  {
+    "id": "g010",
+    "query": "Under the NFIP General Property Form, which losses does the deductible not apply to?",
+    "ideal_answer": "The deductible does not apply to Loss Avoidance Measures under III.C.2, or Increased Cost of Compliance under III.D.",
+    "sources": [
+      "nfip_general_property_form"
+    ]
+  },
+  {
+    "id": "g011",
+    "query": "What is the maximum flood insurance building coverage available for a single-family dwelling under the NFIP Regular Program?",
+    "ideal_answer": "A single-family dwelling can be insured for up to $250,000 of building coverage under the Regular Program, compared with $35,000 under the Emergency Program. Contents coverage for residential property is limited to $100,000 under the Regular Program and $10,000 under the Emergency Program.",
+    "sources": [
+      "nfip_44cfr61_regulation"
+    ]
+  },
+  {
+    "id": "g012",
+    "query": "How does the cumulative bonus work under the Universal Sompo Complete Healthcare policy?",
+    "ideal_answer": "If no claim has been made under the policy, including for the optional benefits, and the policy is renewed without any break, a cumulative bonus is applied to the next policy year by automatically increasing the sum insured. For the Basic, Essential, Privilege and Digi-Pro plans with a base sum insured up to 10 lacs, the increase is 10% of the sum insured for every claim free year, accumulating up to 50% of the sum insured. For the Plus, Premier and Executive plans with a base sum insured from 15 lacs to 50 lacs, the increase is 20% and the maximum cumulative bonus cannot exceed 100% of the in-patient sum insured. In a family floater the bonus is available only for insured persons who were covered in the claim free policy year and continue to be covered in the subsequent policy year, and if a claim is made after a bonus has been applied it is automatically decreased in the subsequent policy year.",
+    "sources": [
+      "universal_sompo_complete_healthcare"
+    ]
+  },
+  {
+    "id": "g013",
+    "query": "What minimum deductible amounts does the NFIP regulation require, and what is the highest deductible option FEMA must offer?",
+    "ideal_answer": "FEMA must provide policyholders with deductible options in various amounts up to and including $10,000, subject to minimum deductible amounts. For pre-FIRM buildings charged less than full-risk rates, the minimum deductible is $1,500 where the building coverage amount is less than or equal to $100,000, and $2,000 where it is greater than $100,000. For post-FIRM buildings and pre-FIRM buildings charged full risk rates, the minimum deductible is $1,000 where the building coverage amount is equal to or less than $100,000, and $1,250 where it is greater than $100,000.",
+    "sources": [
+      "nfip_44cfr61_regulation"
+    ]
+  },
+  {
+    "id": "g014",
+    "query": "Which economic losses does the NFIP Dwelling Form refuse to pay for?",
+    "ideal_answer": "Because the policy pays only for direct physical loss by or from flood, it does not pay for loss of revenue or profits, loss of access to the insured property or described location, loss of use of the insured property or described location, loss from interruption of business or production, any additional living expenses incurred while the insured building is being repaired or is unable to be occupied for any reason, the cost of complying with any ordinance or law requiring or regulating the construction, demolition, remodeling, renovation or repair of property including removal of any resulting debris, or any other economic loss. The ordinance or law exclusion does not apply to eligible activities described under Coverage D, Increased Cost of Compliance.",
+    "sources": [
+      "nfip_dwelling_form"
+    ]
+  },
+  {
+    "id": "g015",
+    "query": "How much will the NFIP Dwelling Form pay under Increased Cost of Compliance, and is a separate deductible charged?",
+    "ideal_answer": "The policy pays up to $30,000 under Coverage D, Increased Cost of Compliance, which only applies to policies with building coverage under Coverage A. Payment under Coverage D is in addition to the amount of coverage selected on the application and shown on the Declarations Page, but the maximum that can be collected under the policy for Coverage A, Building Property, and Coverage D together cannot exceed the maximum permitted under the Act. No separate deductible is charged for a claim under Coverage D.",
+    "sources": [
+      "nfip_dwelling_form"
+    ]
+  },
+  {
+    "id": "g016",
+    "query": "When does the Universal Sompo policy cover cosmetic or plastic surgery?",
+    "ideal_answer": "Expenses for cosmetic or plastic surgery, or any treatment to change appearance, are excluded under Code Excl08, unless the treatment is for reconstruction following an accident, burns or cancer, or is part of medically necessary treatment to remove a direct and immediate health risk to the insured. For this to be considered a medical necessity, it must be certified by the attending medical practitioner.",
+    "sources": [
+      "universal_sompo_complete_healthcare"
+    ]
+  },
+  {
+    "id": "g017",
+    "query": "Under what conditions will the HDFC ERGO policy pay for surgical treatment of obesity?",
+    "ideal_answer": "Expenses related to the surgical treatment of obesity are excluded under Excl06 unless all of the following conditions are fulfilled: the surgery is conducted upon the advice of the doctor, the surgery or procedure is supported by clinical protocols, the member is 18 years of age or older, and the body mass index is greater than or equal to 40, or greater than or equal to 35 in conjunction with severe co-morbidities following failure of less invasive methods of weight loss.",
+    "sources": [
+      "hdfc_ergo_health"
+    ]
+  },
+  {
+    "id": "g018",
+    "query": "Who is eligible for the Bariatric Surgery Cover under the SBI SuperHealth policy, and what conditions apply?",
+    "ideal_answer": "The cover pays the medical expenses listed in Section C.1 when the insured is hospitalised on the advice of a medical practitioner and undergoes bariatric surgery during the policy period. Eligibility is for adults aged 18 years or older with a body mass index greater than or equal to 40, or greater than or equal to 35 in conjunction with severe co-morbidities following failure of less invasive methods of weight loss, such as obesity-related cardiomyopathy, coronary heart disease, severe sleep apnea or uncontrolled type 2 diabetes. The maximum liability is restricted to the sublimit mentioned in the policy schedule, bariatric surgery performed for cosmetic reasons is excluded, and the indication for the procedure must be found appropriate by two qualified surgeons with prior approval for cashless treatment obtained from the company.",
+    "sources": [
+      "sbi_superhealth"
+    ]
+  },
+  {
+    "id": "g019",
+    "query": "What does the SBI SuperHealth policy exclude under Investigation and Evaluation, and under Rest Cure?",
+    "ideal_answer": "Under Investigation and Evaluation, Code Excl 04, the policy excludes expenses related to any admission primarily for diagnostics and evaluation purposes, and any diagnostic expenses which are not related or not incidental to the current diagnosis and treatment. Under Rest Cure, rehabilitation and respite care, Code Excl 05, it excludes expenses related to any admission primarily for enforced bed rest and not for receiving treatment, including custodial care either at home or in a nursing facility for personal care such as help with activities of daily living like bathing, dressing and moving around, whether by skilled nurses or non-skilled persons, and any services for people who are terminally ill to address physical, social, emotional and spiritual needs.",
+    "sources": [
+      "sbi_superhealth"
+    ]
+  },
+  {
+    "id": "g020",
+    "query": "What health check-up benefit does the Universal Sompo policy give after a claim free year?",
+    "ideal_answer": "If no claim has been made under the policy, including for the optional benefits, and the policy has been maintained without any break, the company issues a health check-up coupon for the Basic, Essential and Privilege plans, and reimburses the cost of a preventive health check-up up to the specified limits for the Plus, Premier, Executive and Digi-Pro plan sum insured options. This cover does not carry forward if it is not claimed and is not provided if the policy is not renewed further. The limits apply to each insured person in the case of an individual policy, and cumulatively for all insured persons in the case of a family floater policy.",
+    "sources": [
+      "universal_sompo_complete_healthcare"
+    ]
+  }
+]

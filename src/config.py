@@ -10,6 +10,8 @@ class Settings(BaseSettings):
     GROQ_API_KEY: str
     GEMINI_API_KEY: str
 
+    DISPLAY_RETRIEVED_CHUNKS: bool = True
+
     model_config = SettingsConfigDict(env_file=".env")
 
 
