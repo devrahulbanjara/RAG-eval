@@ -9,11 +9,14 @@ authors = [
 requires-python = ">=3.14"
 dependencies = [
     "deepeval>=4.2.3",
+    "google-genai>=2.24.0",
+    "groq>=1.7.0",
+    "langchain-text-splitters>=1.1.2",
+    "pinecone>=10.0.0",
+    "pydantic-settings>=2.15.0",
+    "pymupdf4llm>=1.28.2",
+    "sentence-transformers>=6.0.1",
 ]
 
-[project.scripts]
-rag-eval-project = "rag_eval_project:main"
-
-[build-system]
-requires = ["uv_build>=0.12.3,<0.13.0"]
-build-backend = "uv_build"
+[tool.uv]
+package = false
