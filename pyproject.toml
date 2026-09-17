@@ -1,0 +1,19 @@
+[project]
+name = "rag-eval-project"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "devrahulbanjara", email = "rdbanjara07@gmail.com" }
+]
+requires-python = ">=3.14"
+dependencies = [
+    "deepeval>=4.2.3",
+]
+
+[project.scripts]
+rag-eval-project = "rag_eval_project:main"
+
+[build-system]
+requires = ["uv_build>=0.12.3,<0.13.0"]
+build-backend = "uv_build"
