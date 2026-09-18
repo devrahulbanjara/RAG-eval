@@ -18,8 +18,6 @@ _embedding_model = None
 
 
 def _get_embedding_model() -> SentenceTransformer:
-    # Loading the model takes a few seconds and the evals call retrieve() once
-    # per golden, so keep one instance for the life of the process.
     global _embedding_model
     if _embedding_model is None:
         _embedding_model = SentenceTransformer(EMBEDDING_MODEL)
@@ -27,7 +25,6 @@ def _get_embedding_model() -> SentenceTransformer:
 
 
 def retrieve(query: str, top_k: int = TOP_K) -> list[dict]:
-    """Return the top_k chunks for a query, best match first."""
     query_vector = _get_embedding_model().encode(
         QUERY_PREFIX + query, normalize_embeddings=True
     )
@@ -48,17 +45,11 @@ def retrieve(query: str, top_k: int = TOP_K) -> list[dict]:
     ]
 
 
-def to_context(chunks: list[dict]) -> list[str]:
-    """Label each chunk with the policy it came from.
-
-    The corpus holds three competing health policies and three near-identical
-    NFIP forms, so an unlabelled context invites an answer that blends them.
-    """
+def label_chunks_with_source(chunks: list[dict]) -> list[str]:
     return [f"[{chunk['source']}]\n{chunk['text'].strip()}" for chunk in chunks]
 
 
-def generate(query: str, context: list[str]) -> str:
-    """Answer a query from the given context blocks and nothing else."""
+def generate_response_from_context(query: str, context: list[str]) -> str:
     client = Groq(api_key=setting.GROQ_API_KEY)
     completion = client.chat.completions.create(
         model=LLM_MODEL,
@@ -100,7 +91,7 @@ def main() -> None:
     print("Answer")
     print(SEPARATOR)
     print()
-    print(generate(search_query, to_context(chunks)))
+    print(generate_response_from_context(search_query, label_chunks_with_source(chunks)))
 
 
 if __name__ == "__main__":
