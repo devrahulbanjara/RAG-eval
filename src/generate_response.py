@@ -1,4 +1,3 @@
-from groq import Groq
 from sentence_transformers import SentenceTransformer
 
 from .config import setting
@@ -8,9 +7,8 @@ from .index_to_pinecone import (
     QUERY_PREFIX,
     get_pinecone_index,
 )
-from .prompts import ANSWER_PROMPT, SYSTEM_PROMPT
+from .llm import generate_response_from_context
 
-LLM_MODEL = "llama-3.3-70b-versatile"
 TOP_K = 5
 SEPARATOR = "=" * 80
 
@@ -49,24 +47,6 @@ def label_chunks_with_source(chunks: list[dict]) -> list[str]:
     return [f"[{chunk['source']}]\n{chunk['text'].strip()}" for chunk in chunks]
 
 
-def generate_response_from_context(query: str, context: list[str]) -> str:
-    client = Groq(api_key=setting.GROQ_API_KEY)
-    completion = client.chat.completions.create(
-        model=LLM_MODEL,
-        temperature=0,
-        messages=[
-            {"role": "system", "content": SYSTEM_PROMPT},
-            {
-                "role": "user",
-                "content": ANSWER_PROMPT.format(
-                    context="\n\n".join(context), question=query
-                ),
-            },
-        ],
-    )
-    return completion.choices[0].message.content
-
-
 def display_chunks(query: str, chunks: list[dict]) -> None:
     print(f"\nQuery: {query}")
     print(f"{len(chunks)} chunks retrieved from namespace {NAMESPACE!r}\n")
@@ -91,7 +71,9 @@ def main() -> None:
     print("Answer")
     print(SEPARATOR)
     print()
-    print(generate_response_from_context(search_query, label_chunks_with_source(chunks)))
+    print(
+        generate_response_from_context(search_query, label_chunks_with_source(chunks))
+    )
 
 
 if __name__ == "__main__":

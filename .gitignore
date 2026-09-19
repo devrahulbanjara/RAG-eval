@@ -15,3 +15,6 @@ project-insurance-rag-evaluation.md
 .deepeval/
 .deepeval-cache.json
 temp_test_run_data.json
+
+# Editors
+.idea/
