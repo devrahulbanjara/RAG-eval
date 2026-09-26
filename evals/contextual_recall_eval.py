@@ -13,8 +13,10 @@ from src.generate_response import retrieve_context
 JUDGE_MODEL = "gemini-3.1-flash-lite"
 THRESHOLD = 0.7
 
+# Gemini free tier allows 15 requests/min, and contextual recall spends 2 requests per test case (verdicts, reason).
+# Running one case at a time and sleeping between them keeps us at 12 requests/min.
 REQUESTS_PER_MINUTE = 12
-REQUESTS_PER_TEST_CASE = 4
+REQUESTS_PER_TEST_CASE = 2
 SECONDS_BETWEEN_TEST_CASES = 60 * REQUESTS_PER_TEST_CASE // REQUESTS_PER_MINUTE
 
 model = GeminiModel(
