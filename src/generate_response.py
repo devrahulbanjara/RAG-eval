@@ -43,8 +43,12 @@ def retrieve(query: str, top_k: int = TOP_K) -> list[dict]:
     ]
 
 
-def label_chunks_with_source(chunks: list[dict]) -> list[str]:
+def format_as_context(chunks: list[dict]) -> list[str]:
     return [f"[{chunk['source']}]\n{chunk['text'].strip()}" for chunk in chunks]
+
+
+def retrieve_context(query: str, top_k: int = TOP_K) -> list[str]:
+    return format_as_context(retrieve(query, top_k))
 
 
 def display_chunks(query: str, chunks: list[dict]) -> None:
@@ -71,9 +75,7 @@ def main() -> None:
     print("Answer")
     print(SEPARATOR)
     print()
-    print(
-        generate_response_from_context(search_query, label_chunks_with_source(chunks))
-    )
+    print(generate_response_from_context(search_query, format_as_context(chunks)))
 
 
 if __name__ == "__main__":
