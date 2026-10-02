@@ -7,7 +7,7 @@ LLM_MODEL = "openai/gpt-oss-120b"
 
 
 def generate_response_from_context(query: str, context: list[str]) -> str:
-    client = Groq(api_key=setting.GROQ_API_KEY)
+    client = Groq(api_key=setting.GROQ_API_KEY, max_retries=10)
     completion = client.chat.completions.create(
         model=LLM_MODEL,
         temperature=0,
