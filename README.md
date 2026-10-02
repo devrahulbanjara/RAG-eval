@@ -24,8 +24,32 @@ wrong we can figure out which part caused it.
 | **Pipeline** | Contextual Relevancy | To evaluate how much of the retrieved context was actually useful for the question. A policy clause bundles a definition, a condition and an exception into one block, so even when the correct chunk is retrieved it still carries a lot of text that has nothing to do with the question. |
 |  | Faithfulness | To evaluate if the generator is still generating the answer based on only the context provided to it, when that context comes from the retriever instead of the golden context. At the generator level it was given the golden context, so any unsupported claim was the generator's fault alone. Here it is given whatever the retriever pulled, which can be noisy or incomplete, and a generator is more likely to fill the gaps from what most policies say. If Faithfulness drops here but not at the generator level, then the retriever caused it. |
 |  | Answer Relevance | To evaluate if the generator is still answering the question that was asked, when the context comes from the retriever. With the golden context the right facts were always in front of it, but with the retrieved context it can get chunks that are only close to the question, and write an answer around those instead, like answering about hospitalisation in general because the knee replacement clause was not retrieved. If Answer Relevance drops here but not at the generator level, then the retriever caused it. |
-| **Application** | Correctness | To evaluate if the answer is true according to the document. This is checked against the policy wording itself, and not against the context that was given to the generator. |
+| **Application** | Correctness | To evaluate if the answer is true according to the document. This is checked against an ideal answer written from the policy wording itself, and not against the context that was given to the generator. |
 |  | Completeness | To evaluate if the generator says everything in the answer and does not miss any important information that was needed for the answer to be complete. In insurance an answer that leaves out the waiting period is not a partial answer, it is a wrong answer. |
+
+## Results
+
+Each metric is judged by `gemini-3.1-flash-lite` on 20 golden queries, and a query passes at a score of 0.7 or more.
+Every run is appended to `evals/results/`, so a change to the RAG logic can be compared against these numbers.
+
+| Level | Metric | Eval | Passed | Average score | Run on |
+|---|---|---|---|---|---|
+| **Retriever** | Contextual Precision | `contextual_precision_eval` | 8/20 | 0.562 | 2026-09-26 |
+|  | Contextual Recall | `contextual_recall_eval` | 15/20 | 0.800 | 2026-09-20 |
+| **Generator** | Faithfulness | `faithfulness_eval` | 19/20 | 0.970 | 2026-09-19 |
+|  | Answer Relevance | `answer_relevancy_eval` | 19/20 | 0.962 | 2026-09-26 |
+| **Pipeline** | Contextual Relevancy | `pipeline_eval` | 1/20 | 0.301 | 2026-09-26 |
+|  | Faithfulness | `pipeline_eval` | 8/20 | 0.727 | 2026-09-26 |
+|  | Answer Relevance | `pipeline_eval` | 9/20 | 0.879 | 2026-09-26 |
+| **Application** | Correctness | `correctness_completeness_eval` | 13/20 | 0.645 | 2026-10-02 |
+|  | Completeness | `correctness_completeness_eval` | 9/20 | 0.561 | 2026-10-02 |
+
+Run any of them from the project root with `uv run python -m evals.<eval>`.
+
+- The generator alone is close to perfect, with Faithfulness at 0.97 and Answer Relevance at 0.96 when it is given the golden context.
+- With the retriever's chunks instead, Faithfulness drops to 0.73 and Answer Relevance passes only 9 of 20, so most of the loss comes from retrieval.
+- The retriever finds most of what is needed, with Contextual Recall at 0.80, but ranks it poorly, with Contextual Precision at 0.56, and most of what it returns is noise, with Contextual Relevancy at 0.30.
+- End to end, 7 of 20 answers contradict the ideal answer and 11 of 20 leave out key points. Many of the failures are on the NFIP flood forms and the HDFC ERGO waiting periods.
 
 ## Why insurance domain ?
 
