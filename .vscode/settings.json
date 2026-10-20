@@ -1,0 +1,7 @@
+{
+  // deepeval types list params as List[str | ...], so passing our list[str] trips
+  // Pylance's list invariance check even though deepeval only reads the list.
+  "python.analysis.diagnosticSeverityOverrides": {
+    "reportArgumentType": "none"
+  }
+}
