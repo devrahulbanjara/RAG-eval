@@ -29,7 +29,7 @@ wrong we can figure out which part caused it.
 
 ## Results
 
-Each metric is judged by `gemini-3.1-flash-lite` on 20 golden queries, and a query passes at a score of 0.7 or more.
+Each metric is judged by `gpt-4o-mini` on 20 golden queries, and a query passes at a score of 0.7 or more.
 Every run is appended to `evals/results/`, so a change to the RAG logic can be compared against these numbers.
 
 | Level | Metric | Eval | Passed | Average score | Run on |

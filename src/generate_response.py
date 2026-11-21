@@ -1,3 +1,4 @@
+from langsmith import traceable
 from sentence_transformers import SentenceTransformer
 
 from .config import setting
@@ -22,6 +23,7 @@ def _get_embedding_model() -> SentenceTransformer:
     return _embedding_model
 
 
+@traceable(run_type="retriever", name="Retrieve Context")
 def retrieve(query: str, top_k: int = TOP_K) -> list[dict]:
     query_vector = _get_embedding_model().encode(
         QUERY_PREFIX + query, normalize_embeddings=True
@@ -64,6 +66,11 @@ def display_chunks(query: str, chunks: list[dict]) -> None:
         print()
 
 
+@traceable(name="Chat Pipeline")
+def answer(query: str, chunks: list[dict]) -> str:
+    return generate_response_from_context(query, format_as_context(chunks))
+
+
 def main() -> None:
     search_query = "Is knee replacement surgery covered by the policy?"
 
@@ -75,7 +82,7 @@ def main() -> None:
     print("Answer")
     print(SEPARATOR)
     print()
-    print(generate_response_from_context(search_query, format_as_context(chunks)))
+    print(answer(search_query, chunks))
 
 
 if __name__ == "__main__":

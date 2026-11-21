@@ -1,14 +1,23 @@
-from groq import Groq
+from functools import cache
+
+from langsmith import traceable
+from langsmith.wrappers import wrap_openai
+from openai import OpenAI
 
 from .config import setting
 from .prompts import ANSWER_PROMPT, SYSTEM_PROMPT
 
-LLM_MODEL = "openai/gpt-oss-120b"
+LLM_MODEL = "gpt-4o-mini"
 
 
+@cache
+def _client() -> OpenAI:
+    return wrap_openai(OpenAI(api_key=setting.OPENAI_API_KEY, max_retries=10))
+
+
+@traceable(name="Generate Answer")
 def generate_response_from_context(query: str, context: list[str]) -> str:
-    client = Groq(api_key=setting.GROQ_API_KEY, max_retries=10)
-    completion = client.chat.completions.create(
+    completion = _client().chat.completions.create(
         model=LLM_MODEL,
         temperature=0,
         messages=[

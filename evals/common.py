@@ -4,16 +4,16 @@ from pathlib import Path
 
 from deepeval import evaluate
 from deepeval.evaluate.configs import AsyncConfig, CacheConfig, ErrorConfig
-from deepeval.models import GeminiModel
+from deepeval.models import OpenAIModel
 
 from evals.run_log import RUN_LOG_DIR, log_run
 from src.config import setting
 
-JUDGE_MODEL = "gemini-3.1-flash-lite"
+JUDGE_MODEL = "gpt-4o-mini"
 THRESHOLD = 0.7
 
-# Gemini free tier allows 15 requests/min. Each eval runs one test case at a time
-# and sleeps between them for its metrics' requests per case, keeping us at 12 requests/min.
+# Each eval runs one test case at a time and sleeps between them for its metrics'
+# requests per case, keeping the judge at REQUESTS_PER_MINUTE.
 REQUESTS_PER_MINUTE = 12
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
@@ -21,13 +21,13 @@ GOLDENS_DIR = PROJECT_ROOT / "goldens"
 
 
 @cache
-def judge_model() -> GeminiModel:
-    return GeminiModel(
+def judge_model() -> OpenAIModel:
+    return OpenAIModel(
         model=JUDGE_MODEL,
-        api_key=setting.GEMINI_API_KEY,
+        api_key=setting.OPENAI_API_KEY,
         temperature=0,
-        cost_per_input_token=0.00000125,
-        cost_per_output_token=0.00000500,
+        cost_per_input_token=0.00000015,
+        cost_per_output_token=0.00000060,
     )
 
 
@@ -47,7 +47,7 @@ def run_eval(
             throttle_value=60 * requests_per_test_case // REQUESTS_PER_MINUTE,
         ),
         cache_config=CacheConfig(write_cache=False),
-        # A single hung or rate-limited Gemini call would otherwise crash the whole run and lose every score so far.
+        # A single hung or rate-limited judge call would otherwise crash the whole run and lose every score so far.
         error_config=ErrorConfig(ignore_errors=True),
     )
 
@@ -56,7 +56,7 @@ def run_eval(
         if not run["scored"]:
             print(
                 f"{run['metric']}: run not logged, judge unavailable for all {run['total']} queries "
-                f"(likely a free-tier rate or quota limit): {run['errored_queries'][0]['error']}"
+                f"(likely a rate or quota limit): {run['errored_queries'][0]['error']}"
             )
             continue
         print(
