@@ -34,15 +34,15 @@ Every run is appended to `evals/results/`, so a change to the RAG logic can be c
 
 | Level | Metric | Eval | Passed | Average score | Run on |
 |---|---|---|---|---|---|
-| **Retriever** | Contextual Precision | `contextual_precision_eval` | 8/20 | 0.562 | 2026-09-26 |
-|  | Contextual Recall | `contextual_recall_eval` | 15/20 | 0.800 | 2026-09-20 |
-| **Generator** | Faithfulness | `faithfulness_eval` | 19/20 | 0.970 | 2026-09-19 |
-|  | Answer Relevance | `answer_relevancy_eval` | 19/20 | 0.962 | 2026-09-26 |
-| **Pipeline** | Contextual Relevancy | `pipeline_eval` | 1/20 | 0.301 | 2026-09-26 |
-|  | Faithfulness | `pipeline_eval` | 8/20 | 0.727 | 2026-09-26 |
-|  | Answer Relevance | `pipeline_eval` | 9/20 | 0.879 | 2026-09-26 |
-| **Application** | Correctness | `correctness_completeness_eval` | 13/20 | 0.645 | 2026-10-02 |
-|  | Completeness | `correctness_completeness_eval` | 9/20 | 0.561 | 2026-10-02 |
+| **Retriever** | Contextual Precision | `contextual_precision_eval` | 13/20 | 0.725 | 2026-11-21 |
+|  | Contextual Recall | `contextual_recall_eval` | 17/20 | 0.890 | 2026-11-21 |
+| **Generator** | Faithfulness | `faithfulness_eval` | 13/18 (2 timed out) | 0.831 | 2026-11-21 |
+|  | Answer Relevance | `answer_relevancy_eval` | 19/20 | 0.933 | 2026-11-21 |
+| **Pipeline** | Contextual Relevancy | `pipeline_eval` | 2/20 | 0.289 | 2026-11-21 |
+|  | Faithfulness | `pipeline_eval` | 10/20 | 0.724 | 2026-11-21 |
+|  | Answer Relevance | `pipeline_eval` | 13/20 | 0.642 | 2026-11-21 |
+| **Application** | Correctness | `correctness_completeness_eval` | 8/20 | 0.544 | 2026-11-21 |
+|  | Completeness | `correctness_completeness_eval` | 6/20 | 0.515 | 2026-11-21 |
 
 Run any of them from the project root with `uv run python -m evals.<eval>`.
 
