@@ -58,6 +58,24 @@ Run any of them from the project root with `uv run python -m evals.<eval>`.
 - **Pipeline:** with the retriever's chunks instead of the golden context, Faithfulness drops to 0.724 and Answer Relevance to 0.642, so most of the loss comes from retrieval. Contextual Relevancy is 0.289, which means most of what the retriever returns is noise.
 - **Application:** end to end, 12 of 20 answers fail Correctness and 14 of 20 fail Completeness. Many of the failures are on the NFIP flood forms and the HDFC ERGO waiting periods.
 
+## Latency
+
+`evals/latency.py` runs the 20 golden queries through the real pipeline and times each stage in seconds.
+The retriever is the query embedding plus the Pinecone search, the generator is the `gpt-4o-mini` call, and end to end is both together.
+One untimed warm-up query runs first so the embedding model load is not counted, and LangSmith tracing is off so it does not add to the timings.
+
+| Stage | min | p50 | p90 | p99 | max | mean |
+|---|---|---|---|---|---|---|
+| Retriever | 2.405 | 4.514 | 5.494 | 7.007 | 7.202 | 4.311 |
+| Generator | 0.768 | 1.991 | 3.839 | 3.919 | 3.926 | 2.196 |
+| End to end | 3.587 | 6.310 | 8.637 | 9.147 | 9.225 | 6.507 |
+
+Run on 2026-11-21 with 20 queries, so p99 is close to the single slowest query.
+Run it with `uv run python -m evals.latency`, add `--runs 5` to repeat every query for steadier tail percentiles, or `--trace` to keep LangSmith tracing on.
+Every run is appended to `evals/results/latency.jsonl`.
+
+The retriever takes about twice as long as the generator because `get_pinecone_index` creates a new Pinecone client, checks the index exists and looks up its host on every query, before the search itself.
+
 ## Why insurance domain ?
 
 Insurance policy wordings were chosen because
