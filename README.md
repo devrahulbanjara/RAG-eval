@@ -10,46 +10,53 @@ demo, with no metrics behind it. This project replaces that with measurement: ho
 the system actually performs, and whether a small change to the RAG logic causes
 any metric to drift — a regression.
 
+![RAG eval suite: component, pipeline and application level evals](docs/tree.png)
+
 ## Metrics
 
-Each part of the system is measured on its own, so that when an answer comes out
-wrong we can figure out which part caused it.
+The suite is split into three levels, so that when an answer comes out wrong we can
+figure out which part caused it.
 
-| Level | Metric | What it evaluates |
-|---|---|---|
-| **Retriever** | Contextual Precision | If the retriever pulls many irrelevant chunks, then the generator can be faithful by generating the answer from those irrelevant chunks only, which makes it faithful but wrong, so we need to figure out if the retriever is actually pulling the most relevant chunks first. |
-|  | Contextual Recall | To evaluate if all the chunks that were needed for the answer have been retrieved at all. A coverage answer usually needs facts from more than one section of the policy, so if even one of them is not pulled the answer cannot be complete. Contextual Precision is about the order of the chunks, and Contextual Recall is about whether something is missing. |
-| **Generator** | Faithfulness | To evaluate if the generator is generating the answer based on only the context provided to it. For example, a generator including a standard 24 month waiting period in the response because most policies have one, even when this policy does not state it anywhere. |
-|  | Answer Relevance | To evaluate if the generator is actually answering the question that was asked. The generator can write a paragraph that is faithful to the context and still not answer the question, like answering a question about knee replacement with a general paragraph about hospitalisation. |
-| **Pipeline** | Contextual Relevancy | To evaluate how much of the retrieved context was actually useful for the question. A policy clause bundles a definition, a condition and an exception into one block, so even when the correct chunk is retrieved it still carries a lot of text that has nothing to do with the question. |
-|  | Faithfulness | To evaluate if the generator is still generating the answer based on only the context provided to it, when that context comes from the retriever instead of the golden context. At the generator level it was given the golden context, so any unsupported claim was the generator's fault alone. Here it is given whatever the retriever pulled, which can be noisy or incomplete, and a generator is more likely to fill the gaps from what most policies say. If Faithfulness drops here but not at the generator level, then the retriever caused it. |
-|  | Answer Relevance | To evaluate if the generator is still answering the question that was asked, when the context comes from the retriever. With the golden context the right facts were always in front of it, but with the retrieved context it can get chunks that are only close to the question, and write an answer around those instead, like answering about hospitalisation in general because the knee replacement clause was not retrieved. If Answer Relevance drops here but not at the generator level, then the retriever caused it. |
-| **Application** | Correctness | To evaluate if the answer is true according to the document. This is checked against an ideal answer written from the policy wording itself, and not against the context that was given to the generator. |
-|  | Completeness | To evaluate if the generator says everything in the answer and does not miss any important information that was needed for the answer to be complete. In insurance an answer that leaves out the waiting period is not a partial answer, it is a wrong answer. |
+- **Component level** tests the retriever and the generator on their own. The generator is given the golden context, so its mistakes are its own.
+- **Pipeline level** runs the RAG triad on the full retrieve-then-generate flow, where the generator only sees what the retriever pulled.
+- **Application level** checks the final answer against an ideal answer written from the policy wording, which is what a customer would actually see.
+
+| Level | Part | Metric | What it evaluates |
+|---|---|---|---|
+| **Component** | Retriever | Contextual Precision | If the retriever pulls many irrelevant chunks, then the generator can be faithful by generating the answer from those irrelevant chunks only, which makes it faithful but wrong, so we need to figure out if the retriever is actually pulling the most relevant chunks first. |
+|  | Retriever | Contextual Recall | To evaluate if all the chunks that were needed for the answer have been retrieved at all. A coverage answer usually needs facts from more than one section of the policy, so if even one of them is not pulled the answer cannot be complete. Contextual Precision is about the order of the chunks, and Contextual Recall is about whether something is missing. |
+|  | Generator | Faithfulness | To evaluate if the generator is generating the answer based on only the context provided to it. For example, a generator including a standard 24 month waiting period in the response because most policies have one, even when this policy does not state it anywhere. |
+|  | Generator | Answer Relevance | To evaluate if the generator is actually answering the question that was asked. The generator can write a paragraph that is faithful to the context and still not answer the question, like answering a question about knee replacement with a general paragraph about hospitalisation. |
+| **Pipeline** | RAG Triad | Contextual Relevancy | To evaluate how much of the retrieved context was actually useful for the question. A policy clause bundles a definition, a condition and an exception into one block, so even when the correct chunk is retrieved it still carries a lot of text that has nothing to do with the question. |
+|  | RAG Triad | Faithfulness | The same check as at the component level, but the context now comes from the retriever instead of the golden context. Retrieved context can be noisy or incomplete, and a generator is more likely to fill the gaps from what most policies say. If Faithfulness drops here but not at the component level, then the retriever caused it. |
+|  | RAG Triad | Answer Relevance | The same check as at the component level, but with retrieved context. The generator can get chunks that are only close to the question and write an answer around those instead, like answering about hospitalisation in general because the knee replacement clause was not retrieved. If Answer Relevance drops here but not at the component level, then the retriever caused it. |
+| **Application** | Application Quality | Correctness | To evaluate if the answer is true according to the document. This is checked against an ideal answer written from the policy wording itself, and not against the context that was given to the generator. |
+|  | Application Quality | Completeness | To evaluate if the answer says everything that was needed and does not miss any important information. In insurance an answer that leaves out the waiting period is not a partial answer, it is a wrong answer. |
+
+Safety and Operations, the other two application level branches in the diagram, are in progress.
 
 ## Results
 
 Each metric is judged by `gpt-4o-mini` on 20 golden queries, and a query passes at a score of 0.7 or more.
 Every run is appended to `evals/results/`, so a change to the RAG logic can be compared against these numbers.
 
-| Level | Metric | Eval | Passed | Average score | Run on |
-|---|---|---|---|---|---|
-| **Retriever** | Contextual Precision | `contextual_precision_eval` | 13/20 | 0.725 | 2026-11-21 |
-|  | Contextual Recall | `contextual_recall_eval` | 17/20 | 0.890 | 2026-11-21 |
-| **Generator** | Faithfulness | `faithfulness_eval` | 13/18 (2 timed out) | 0.831 | 2026-11-21 |
-|  | Answer Relevance | `answer_relevancy_eval` | 19/20 | 0.933 | 2026-11-21 |
-| **Pipeline** | Contextual Relevancy | `pipeline_eval` | 2/20 | 0.289 | 2026-11-21 |
-|  | Faithfulness | `pipeline_eval` | 10/20 | 0.724 | 2026-11-21 |
-|  | Answer Relevance | `pipeline_eval` | 13/20 | 0.642 | 2026-11-21 |
-| **Application** | Correctness | `correctness_completeness_eval` | 8/20 | 0.544 | 2026-11-21 |
-|  | Completeness | `correctness_completeness_eval` | 6/20 | 0.515 | 2026-11-21 |
+| Level | Part | Metric | Eval | Passed | Average score | Run on |
+|---|---|---|---|---|---|---|
+| **Component** | Retriever | Contextual Precision | `contextual_precision_eval` | 13/20 | 0.725 | 2026-11-21 |
+|  | Retriever | Contextual Recall | `contextual_recall_eval` | 17/20 | 0.890 | 2026-11-21 |
+|  | Generator | Faithfulness | `faithfulness_eval` | 13/18 (2 timed out) | 0.831 | 2026-11-21 |
+|  | Generator | Answer Relevance | `answer_relevancy_eval` | 19/20 | 0.933 | 2026-11-21 |
+| **Pipeline** | RAG Triad | Contextual Relevancy | `pipeline_eval` | 2/20 | 0.289 | 2026-11-21 |
+|  | RAG Triad | Faithfulness | `pipeline_eval` | 10/20 | 0.724 | 2026-11-21 |
+|  | RAG Triad | Answer Relevance | `pipeline_eval` | 13/20 | 0.642 | 2026-11-21 |
+| **Application** | Application Quality | Correctness | `correctness_completeness_eval` | 8/20 | 0.544 | 2026-11-21 |
+|  | Application Quality | Completeness | `correctness_completeness_eval` | 6/20 | 0.515 | 2026-11-21 |
 
 Run any of them from the project root with `uv run python -m evals.<eval>`.
 
-- The generator alone is close to perfect, with Faithfulness at 0.97 and Answer Relevance at 0.96 when it is given the golden context.
-- With the retriever's chunks instead, Faithfulness drops to 0.73 and Answer Relevance passes only 9 of 20, so most of the loss comes from retrieval.
-- The retriever finds most of what is needed, with Contextual Recall at 0.80, but ranks it poorly, with Contextual Precision at 0.56, and most of what it returns is noise, with Contextual Relevancy at 0.30.
-- End to end, 7 of 20 answers contradict the ideal answer and 11 of 20 leave out key points. Many of the failures are on the NFIP flood forms and the HDFC ERGO waiting periods.
+- **Component:** the generator does well on its own, with Faithfulness at 0.831 and Answer Relevance at 0.933 when it is given the golden context. The retriever finds most of what is needed, with Contextual Recall at 0.890, but ranks it less well, with Contextual Precision at 0.725.
+- **Pipeline:** with the retriever's chunks instead of the golden context, Faithfulness drops to 0.724 and Answer Relevance to 0.642, so most of the loss comes from retrieval. Contextual Relevancy is 0.289, which means most of what the retriever returns is noise.
+- **Application:** end to end, 12 of 20 answers fail Correctness and 14 of 20 fail Completeness. Many of the failures are on the NFIP flood forms and the HDFC ERGO waiting periods.
 
 ## Why insurance domain ?
 
