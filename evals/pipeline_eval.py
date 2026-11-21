@@ -7,12 +7,8 @@ from deepeval.test_case import LLMTestCase
 
 from evals.common import THRESHOLD, judge_model, load_goldens, run_eval
 from evals.run_log import PIPELINE_RUN_LOG_DIR
-from src.generate_response import TOP_K, retrieve_context
+from src.generate_response import retrieve_context
 from src.llm import generate_response_from_context
-
-# deepeval runs all three metrics of a test case at once: contextual relevancy spends
-# one request per retrieved chunk plus a reason, faithfulness 4, answer relevancy 3.
-REQUESTS_PER_TEST_CASE = (TOP_K + 1) + 4 + 3
 
 
 def main() -> None:
@@ -38,7 +34,7 @@ def main() -> None:
             )
         )
 
-    run_eval(test_cases, metrics, REQUESTS_PER_TEST_CASE, PIPELINE_RUN_LOG_DIR)
+    run_eval(test_cases, metrics, PIPELINE_RUN_LOG_DIR)
 
 
 if __name__ == "__main__":

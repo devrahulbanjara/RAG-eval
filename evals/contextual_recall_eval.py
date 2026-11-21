@@ -4,9 +4,6 @@ from deepeval.test_case import LLMTestCase
 from evals.common import THRESHOLD, judge_model, load_goldens, run_eval
 from src.generate_response import retrieve_context
 
-# Contextual recall spends 2 requests per test case (verdicts, reason).
-REQUESTS_PER_TEST_CASE = 2
-
 
 def main() -> None:
     metric = ContextualRecallMetric(
@@ -25,7 +22,7 @@ def main() -> None:
             )
         )
 
-    run_eval(test_cases, [metric], REQUESTS_PER_TEST_CASE)
+    run_eval(test_cases, [metric])
 
 
 if __name__ == "__main__":

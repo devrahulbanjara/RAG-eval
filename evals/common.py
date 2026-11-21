@@ -3,7 +3,7 @@ from functools import cache
 from pathlib import Path
 
 from deepeval import evaluate
-from deepeval.evaluate.configs import AsyncConfig, CacheConfig, ErrorConfig
+from deepeval.evaluate.configs import CacheConfig, ErrorConfig
 from deepeval.models import OpenAIModel
 
 from evals.run_log import RUN_LOG_DIR, log_run
@@ -11,10 +11,6 @@ from src.config import setting
 
 JUDGE_MODEL = "gpt-4o-mini"
 THRESHOLD = 0.7
-
-# Each eval runs one test case at a time and sleeps between them for its metrics'
-# requests per case, keeping the judge at REQUESTS_PER_MINUTE.
-REQUESTS_PER_MINUTE = 12
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 GOLDENS_DIR = PROJECT_ROOT / "goldens"
@@ -36,16 +32,10 @@ def load_goldens(name: str) -> list[dict]:
         return json.load(f)
 
 
-def run_eval(
-    test_cases, metrics, requests_per_test_case: int, run_log_dir: Path = RUN_LOG_DIR
-) -> list[dict]:
+def run_eval(test_cases, metrics, run_log_dir: Path = RUN_LOG_DIR) -> list[dict]:
     result = evaluate(
         test_cases=test_cases,
         metrics=metrics,
-        async_config=AsyncConfig(
-            max_concurrent=1,
-            throttle_value=60 * requests_per_test_case // REQUESTS_PER_MINUTE,
-        ),
         cache_config=CacheConfig(write_cache=False),
         # A single hung or rate-limited judge call would otherwise crash the whole run and lose every score so far.
         error_config=ErrorConfig(ignore_errors=True),

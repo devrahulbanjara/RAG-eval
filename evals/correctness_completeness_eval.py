@@ -6,8 +6,6 @@ from evals.run_log import PIPELINE_RUN_LOG_DIR
 from src.generate_response import retrieve_context
 from src.llm import generate_response_from_context
 
-# Each GEval metric is given fixed evaluation steps, so it spends 1 request per test case.
-REQUESTS_PER_TEST_CASE = 2
 
 EVALUATION_PARAMS = [
     SingleTurnParams.INPUT,
@@ -61,7 +59,6 @@ def main() -> None:
     run_eval(
         test_cases,
         [correctness, completeness],
-        REQUESTS_PER_TEST_CASE,
         PIPELINE_RUN_LOG_DIR,
     )
 
